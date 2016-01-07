@@ -71,6 +71,11 @@ function fast_monkey_setup_document() {
 
 	if ( !is_user_logged_in() )
 		beans_replace_attribute( 'beans_comment_form_comment', 'class', 'uk-width-medium-1-1', 'uk-width-medium-6-10' );
+  else {
+		//Add edit post link when user is logged in
+		if( is_singular() )
+		beans_add_smart_action('beans_post_header_before_markup', 'fast_monkey_edit_link');
+	}
 
 	// Only applies to singular and not pages
  	if ( is_singular() && !is_page() ) {
@@ -86,6 +91,11 @@ function fast_monkey_setup_document() {
 	if ( is_search() )
 		beans_remove_action( 'beans_post_image' );
 
+}
+
+
+function fast_monkey_edit_link() {
+		edit_post_link( __( 'Edit', 'fast-monkey' ), '<div class="uk-margin-bottom-small uk-text-small uk-align-right"><i class="uk-icon-pencil-square-o"></i> ', '</div>' );
 }
 
 // Author profile in posts
