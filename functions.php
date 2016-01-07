@@ -189,13 +189,13 @@ function fast_monkey_widget_tags_cloud( $output ) {
 
 
 // Add the footer menu
-beans_add_smart_action( 'beans_footer_prepend_markup', 'fast_monkey_footer_menu' );
+beans_add_smart_action( 'beans_footer_credit_before_markup', 'fast_monkey_footer_menu' );
 
 function fast_monkey_footer_menu() {
 
 	wp_nav_menu( array( 'theme_location' => 'footer-menu',
 											'container' => 'nav',
-	 										'container_class' => 'tm-footer-menu uk-navbar uk-margin-bottom',
+	 										'container_class' => 'tm-footer-menu uk-navbar',
 											'menu_class' => 'uk-navbar-nav uk-text-small'
 										));
 
@@ -206,7 +206,7 @@ beans_add_smart_action( 'beans_footer_credit_right_text_output', 'fast_monkey_fo
 
 function fast_monkey_footer() { ?>
 
-  <a href="http://themes.kanishkkunal.in/fast-monkey/" target="_blank" title="FastMonkey theme for WordPress">FastMonkey</a> theme for <a href="http://wordpress.org" target="_blank">WordPress</a>. Built-with <a href="http://www.getbeans.io/" title="Beans Framework for WordPress" target="_blank">Beans</a>.
+  <a href="http://themes.kanishkkunal.in/fast-monkey/" target="_blank" title="Fast Monkey theme for WordPress">Fast Monkey</a> theme for <a href="http://wordpress.org" target="_blank">WordPress</a>. Built-with <a href="http://www.getbeans.io/" title="Beans Framework for WordPress" target="_blank">Beans</a>.
 
 <?php }
 
