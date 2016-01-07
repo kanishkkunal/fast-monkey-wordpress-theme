@@ -44,12 +44,12 @@ class FastMonkey_SocialWidget extends WP_Widget {
         <img class="uk-border-circle" width="120" height="120" src="http://2.gravatar.com/avatar/bb9bf20fb6f55b4af10b0f98c540075f?s=192&d=mm&r=g" alt="">
         <h3 class="tm-profile-name">Kanishk Kunal</h3>
         <p class="tm-profile-desc uk-text-muted">Developer - Blogger - Techie</p>
-        <p class="tm-profile-loc uk-text-muted uk-text-small"><i class="uk-icon-map-marker"></i>Delhi, India</p>
+        <p class="tm-profile-loc uk-text-muted uk-text-small"><i class="uk-icon-map-marker"></i>Noida, India</p>
 				<hr>
-				<a href="" class="uk-icon-hover uk-icon-small uk-icon-github"></a>
-				<a href="" class="uk-icon-hover uk-icon-small uk-icon-twitter"></a>
-				<a href="" class="uk-icon-hover uk-icon-small uk-icon-linkedin"></a>
-				<a href="" class="uk-icon-hover uk-icon-small uk-icon-rss"></a>
+				<a href="https://github.com/kanishkkunal/" class="uk-icon-hover uk-icon-small uk-icon-github" title="GitHub" target="_blank"></a>
+				<a href="http://twitter.com/kanishkkunal" class="uk-icon-hover uk-icon-small uk-icon-twitter" title="Twitter" target="_blank"></a>
+				<a href="http://www.linkedin.com/in/kanishkkunal" class="uk-icon-hover uk-icon-small uk-icon-linkedin" title="LinkedIn" target="_blank"></a>
+				<a href="http://feeds.feedburner.com/supercodingtips" class="uk-icon-hover uk-icon-small uk-icon-rss" title="Rss" target="_blank"></a>
     </div>
 
 
