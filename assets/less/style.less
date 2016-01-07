@@ -80,6 +80,11 @@ body:not(.single) .uk-article-title {
 	line-height: @article-title-line-height - 6;
 }
 
+body.page .uk-article-title {
+    font-size: 36px;
+    line-height: 42px;
+}
+
 .uk-article, .uk-panel-box {
 	padding: @tm-content-gutter-vertical @tm-content-gutter-horizontal @tm-content-gutter-vertical / 2;
 	border: 1px solid @global-border;
@@ -238,6 +243,7 @@ body:not(.single) .uk-article-title {
 
 
 .widget_categories ul {
+	list-style: none;
 	-moz-column-count: 2;
     -moz-column-gap: 20px;
     -webkit-column-count: 2;
