@@ -52,6 +52,14 @@ function fast_monkey_setup_document() {
 	beans_add_attribute( 'beans_sub_menu_wrap', 'class', 'uk-dropdown-center' );
 	beans_remove_attribute( 'beans_menu_item_child_indicator', 'class', 'uk-margin-small-left' );
 
+	// Layout
+	if(beans_get_layout( ) != 'c') {
+		beans_remove_attribute( 'beans_primary', 'class', 'uk-width-medium-7-10' );
+		beans_add_attribute( 'beans_primary', 'class', 'uk-width-large-7-10' );
+		beans_remove_attribute( 'beans_sidebar_primary', 'class', 'uk-width-medium-3-10' );
+		beans_add_attribute( 'beans_sidebar_primary', 'class', 'uk-width-large-3-10 uk-visible-large' );
+ }
+
 	// Post content
 	beans_add_attribute( 'beans_post_content', 'class', 'uk-text-large' );
 
@@ -111,6 +119,19 @@ function fast_monkey_author_profile() {
 }
 
 
+// Modify beans layout (filter)
+beans_add_smart_action( 'beans_layout_grid_settings', 'fast_monkey_layout_grid_settings' );
+
+function fast_monkey_layout_grid_settings( $layouts ) {
+
+	return array_merge( $layouts, array(
+		'grid' => 10,
+		'sidebar_primary' => 3,
+		'sidebar_secondary' => 3,
+	) );
+
+}
+
 // Add search in header after primary menu
 beans_add_smart_action( 'beans_primary_menu_after_markup', 'fast_monkey_primary_menu_search' );
 function fast_monkey_primary_menu_search() {
@@ -119,20 +140,6 @@ function fast_monkey_primary_menu_search() {
 	) );
 		get_search_form();
 	echo beans_close_markup( 'fast_monkey_menu_primary_search', 'div' );
-}
-
-
-// Modify beans layout (filter)
-beans_add_smart_action( 'beans_layout_grid_settings', 'fast_monkey_layout_grid_settings' );
-
-function fast_monkey_layout_grid_settings( $layouts ) {
-
-	return array_merge( $layouts, array(
-		'grid' => 10,
-		'sidebar_primary' => 2,
-		'sidebar_secondary' => 2,
-	) );
-
 }
 
 // Modify beans post meta items (filter)
