@@ -265,3 +265,6 @@ add_action('beans_head_append_markup', 'fast_monkey_custom_head_code');
 function fast_monkey_custom_head_code() {
 	echo get_theme_mod( 'fast_monkey_head_code', '' );
 }
+
+/* Shortcodes */
+require 'include/shortcodes.php';
