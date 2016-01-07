@@ -107,7 +107,7 @@ function fast_monkey_edit_link() {
 // Author profile in posts
 function fast_monkey_author_profile() {
 	echo '<h3>'.__('About the Author', 'fast-monkey').'</h3>';
-	echo beans_open_markup( 'fast_monkey_author_profile', 'div',  array( 'class' => 'uk-panel uk-panel-box-secondary uk-panel-space' ) );
+	echo beans_open_markup( 'fast_monkey_author_profile', 'div',  array( 'class' => 'uk-panel uk-panel-box' ) );
   echo '<div class="uk-clearfix">';
 	  echo '<div class="uk-align-left">'.get_avatar( get_the_author_meta('ID'), 96 ).'</div>';
    	echo '<div class="uk-text-large uk-text-bold">'.get_the_author_meta('display_name').'</div>';

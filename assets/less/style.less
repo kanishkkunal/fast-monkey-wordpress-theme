@@ -48,7 +48,7 @@
  ========================================================================== */
 
 .tm-main {
-	background: #F5F8F9;
+	background: @global-body-background-color;
 	padding-top: 40px;
 }
 
@@ -60,18 +60,14 @@ body:not(.single) .uk-article-title {
 	line-height: @article-title-line-height - 6;
 }
 
-.uk-article,
-.tm-social-profile.uk-panel {
+.uk-article, .uk-panel-box {
 	padding: @tm-content-gutter-vertical @tm-content-gutter-horizontal @tm-content-gutter-vertical / 2;
 	border: 1px solid @global-border;
 	background-color: #fff;
 }
-
-
 /* Phone landscape and bigger */
 @media (max-width: @breakpoint-small) {
-	.uk-article,
-	.tm-social-profile.uk-panel {
+	.uk-article, .uk-panel-box {
 		padding: 15px;
 	}
 }

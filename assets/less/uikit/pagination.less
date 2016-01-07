@@ -1,6 +1,8 @@
 // Variables modifiers
 // ========================================================================
 
+@pagination-background:                        #fff;
+
 @pagination-next-previous-padding-horizontal:   0;
 @pagination-next-previous-color: 				@base-link-color;
 @pagination-next-previous-background: 			none;
@@ -27,4 +29,8 @@
 
 .hook-pagination-item() {
 	border-radius: @global-border-radius;
+}
+
+.uk-pagination > li > a {
+	border: 1px solid @global-border;
 }
