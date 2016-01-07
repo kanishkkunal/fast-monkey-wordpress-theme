@@ -2,7 +2,7 @@
 // ========================================================================
 
 @tm-content-gutter-vertical: 25px;
-@tm-content-gutter-horizontal: 25px;
+@tm-content-gutter-horizontal: 35px;
 
 /* Font
  ========================================================================== */
@@ -61,12 +61,21 @@ body:not(.single) .uk-article-title {
 }
 
 body:not(.single) .uk-panel-box,
-body:not(.single) .uk-article,
-.single .tm-content,
+.uk-article,
 .tm-social-profile.uk-panel {
 	padding: @tm-content-gutter-vertical @tm-content-gutter-horizontal @tm-content-gutter-vertical / 2;
 	border: 1px solid @global-border;
 	background-color: #fff;
+}
+
+
+/* Phone landscape and bigger */
+@media (max-width: @breakpoint-small) {
+	body:not(.single) .uk-panel-box,
+	.uk-article,
+	.tm-social-profile.uk-panel {
+		padding: 15px;
+	}
 }
 
 .single .uk-article header {

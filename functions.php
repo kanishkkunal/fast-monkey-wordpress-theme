@@ -73,9 +73,7 @@ function fast_monkey_setup_document() {
 	beans_add_attribute( 'beans_embed_oembed', 'class', 'tm-cover-article' );
 
 	// Comment form
-	beans_add_attribute( 'beans_comment_form_wrap', 'class', 'tm-cover-article' );
 	beans_add_attribute( 'beans_comment_fields_inner_wrap', 'class', 'uk-grid-small' );
-	beans_add_attribute( 'beans_comment_form_submit', 'class', 'uk-button-large' );
 
 	if ( !is_user_logged_in() )
 		beans_replace_attribute( 'beans_comment_form_comment', 'class', 'uk-width-medium-1-1', 'uk-width-medium-6-10' );
