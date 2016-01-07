@@ -32,7 +32,7 @@ if (!function_exists('fast_monkey_placeholder_img')):
         $name = beans_output( 'beans_site_title_text', get_bloginfo( 'name' ) );
         if ( $logo = get_theme_mod( 'beans_logo_image', false ) )
       		$image = beans_selfclose_markup( 'beans_post_logo_image', 'img', array(
-      			'class' => 'tm-post-widget-img uk-border-circle uk-float-left uk-margin-small-right',
+      			'class' => 'tm-post-widget-img uk-border-rounded uk-float-left',
       			'src' => esc_url( $logo ),
       			'alt' => esc_attr( $name ),
       		) );

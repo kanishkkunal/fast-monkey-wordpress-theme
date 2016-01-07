@@ -94,7 +94,7 @@ class FastMonkey_Posts_Widget extends WP_Widget {
 			 		<li>
 			 			<a href="<?php echo esc_url( get_permalink() ); ?>"  title="<?php echo esc_attr( get_the_title() ); ?>">
 			 				<?php if(has_post_thumbnail()): ?>
-			 					<?php the_post_thumbnail(array(48, 48), array( 'class' => 'tm-post-widget-img uk-border-circle uk-float-left uk-margin-small-right' ) ); ?>
+			 					<?php the_post_thumbnail(array(48, 48), array( 'class' => 'tm-post-widget-img uk-border-rounded uk-float-left' ) ); ?>
 			 				<?php else: ?>
 			 					<?php echo fast_monkey_placeholder_img(); ?>
 			 				<?php endif; ?>
