@@ -123,7 +123,6 @@ function fast_monkey_author_profile() {
 	echo beans_close_markup( 'fast_monkey_author_profile', 'div' );
 }
 
-
 // Modify beans layout (filter)
 beans_add_smart_action( 'beans_layout_grid_settings', 'fast_monkey_layout_grid_settings' );
 
@@ -217,4 +216,29 @@ function fast_monkey_register_widgets() {
 	 		// Regidter widgets
 			register_widget('FastMonkey_Posts_Widget');
 			register_widget( 'FastMonkey_SocialWidget' );
+}
+
+
+//Customizer fields
+
+//Additional Header & Footer Codes (for Google Analytics)
+add_action( 'init', 'fast_monkey_customization_fields' );
+function fast_monkey_customization_fields() {
+
+	$fields = array(
+		array(
+			'id' => 'fast_monkey_head_code',
+			'label' => __( 'Additional Head Code', 'fast-monkey' ),
+			'type' => 'textarea',
+			'default' => ''
+		)
+	);
+
+	beans_register_wp_customize_options( $fields, 'fast_monkey_custom_code', array( 'title' => __( 'Custom Code', 'fast-monkey' ), 'priority' => 1100 ) );
+}
+
+add_action('beans_head_append_markup', 'fast_monkey_custom_head_code');
+
+function fast_monkey_custom_head_code() {
+	echo get_theme_mod( 'fast_monkey_head_code', '' );
 }
