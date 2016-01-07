@@ -177,17 +177,6 @@ function fast_monkey_avatar( $output ) {
 
 }
 
-
-// Modify the tags cloud widget
-beans_add_smart_action( 'wp_generate_tag_cloud', 'fast_monkey_widget_tags_cloud' );
-
-function fast_monkey_widget_tags_cloud( $output ) {
-
-	return preg_replace( "#style='font-size:.+pt;'#", '', $output );
-
-}
-
-
 // Add the footer menu
 beans_add_smart_action( 'beans_footer_credit_before_markup', 'fast_monkey_footer_menu' );
 
