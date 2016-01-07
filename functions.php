@@ -92,6 +92,8 @@ function fast_monkey_setup_document() {
  		beans_remove_action( 'beans_post_image' );
  		// Post title
  		beans_add_attribute( 'beans_post_title', 'class', 'uk-margin-bottom' );
+		//Widget area after post content
+		beans_add_smart_action( 'the_content', 'fast_monkey_widget_after_post_content' );
  		// Post author profile
  		add_action( 'beans_comments_before_markup', 'fast_monkey_author_profile' );
  	}
@@ -181,6 +183,27 @@ function fast_monkey_avatar( $output ) {
 
 	return str_replace( "class='avatar", "class='avatar uk-border-circle", $output ) ;
 
+}
+
+// Register a widget area below post content.
+add_action( 'widgets_init', 'fast_monkey_below_post_widget_area' );
+
+function fast_monkey_below_post_widget_area() {
+
+    beans_register_widget_area( array(
+        'name' => 'Below Post',
+        'id' => 'below-post',
+        'beans_type' => 'stack'
+    ) );
+}
+
+//Display the Widget area
+function fast_monkey_widget_after_post_content( $content ) {
+	$output =  $content;
+	$output .=  '<div class="tm-below-post-widget-area">';
+	$output .=   beans_widget_area( 'below-post' );
+	$output .=  '</div>';
+	return $output;
 }
 
 // Add the footer menu
