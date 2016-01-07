@@ -39,11 +39,14 @@ beans_add_smart_action( 'wp', 'fast_monkey_setup_document' );
 
 function fast_monkey_setup_document() {
 
-	// Header and Primary Menu
+	// Header and Primary Menu	// Site Logo
 	beans_remove_action( 'beans_site_title_tag' );
+	//Add back site title after logo image
+	beans_add_smart_action('beans_logo_image_after_markup', 'fast_monkey_site_title');
+
+	//Navigation menu
 	beans_remove_attribute( 'beans_primary_menu', 'class', 'uk-float-right' );
 	beans_add_attribute( 'beans_primary_menu', 'class', 'uk-float-left' );
-	beans_remove_action( 'beans_site_title_tag' );
 
 	// Remove Breadcrumb
 	beans_remove_action( 'beans_breadcrumb' );
@@ -99,6 +102,10 @@ function fast_monkey_setup_document() {
 
 }
 
+
+function fast_monkey_site_title() {
+	echo beans_output( 'beans_site_title_text', get_bloginfo( 'name' ) );
+}
 
 function fast_monkey_edit_link() {
 		edit_post_link( __( 'Edit', 'fast-monkey' ), '<div class="uk-margin-bottom-small uk-text-small uk-align-right"><i class="uk-icon-pencil-square-o"></i> ', '</div>' );
