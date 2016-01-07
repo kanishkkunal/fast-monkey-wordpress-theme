@@ -11,12 +11,12 @@ remove_theme_support( 'beans-default-styling' );
 
 
 // Enqueue uikit assets
-beans_add_smart_action( 'beans_uikit_enqueue_scripts', 'human_droid_enqueue_uikit_assets', 5 );
+beans_add_smart_action( 'beans_uikit_enqueue_scripts', 'fast_monkey_enqueue_uikit_assets', 5 );
 
-function human_droid_enqueue_uikit_assets() {
+function fast_monkey_enqueue_uikit_assets() {
 
 	// Enqueue uikit overwrite theme folder
-	beans_uikit_enqueue_theme( 'human-droid', get_stylesheet_directory_uri() . '/assets/less/uikit' );
+	beans_uikit_enqueue_theme( 'fast-monkey', get_stylesheet_directory_uri() . '/assets/less/uikit' );
 
 	// Add the theme style as a uikit fragment to have access to all the variables
 	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/assets/less/style.less', 'less' );
@@ -24,29 +24,20 @@ function human_droid_enqueue_uikit_assets() {
 }
 
 //Setup Theme
-beans_add_smart_action( 'init', 'human_droid_init' );
+beans_add_smart_action( 'init', 'fast_monkey_init' );
 
-function human_droid_init() {
+function fast_monkey_init() {
 
 	// Remove page post type comment support
 	remove_post_type_support( 'page', 'comments' );
 	// Register additional menus, we already have a Primary menu registered
-	register_nav_menu('footer-menu', __( 'Footer Menu', 'human-droid'));
-}
-
-// Force three column layout.
-add_filter( 'beans_layout', 'beans_child_force_layout' );
-
-function beans_child_force_layout() {
-
-    return 'sp_c_ss';
-
+	register_nav_menu('footer-menu', __( 'Footer Menu', 'fast-monkey'));
 }
 
 // Setup document fragements, markups and attributes
-beans_add_smart_action( 'wp', 'human_droid_setup_document' );
+beans_add_smart_action( 'wp', 'fast_monkey_setup_document' );
 
-function human_droid_setup_document() {
+function fast_monkey_setup_document() {
 
 	// Header and Primary Menu
 	beans_remove_action( 'beans_site_title_tag' );
@@ -88,7 +79,7 @@ function human_droid_setup_document() {
  		// Post title
  		beans_add_attribute( 'beans_post_title', 'class', 'uk-margin-bottom' );
  		// Post author profile
- 		add_action( 'beans_comments_before_markup', 'human_droid_author_profile' );
+ 		add_action( 'beans_comments_before_markup', 'fast_monkey_author_profile' );
  	}
 
 	// Search
@@ -98,33 +89,33 @@ function human_droid_setup_document() {
 }
 
 // Author profile in posts
-function human_droid_author_profile() {
-	echo '<h3>'.__('About the Author', 'human-droid').'</h3>';
-	echo beans_open_markup( 'human_droid_author_profile', 'div',  array( 'class' => 'uk-panel uk-panel-box-secondary uk-panel-space' ) );
+function fast_monkey_author_profile() {
+	echo '<h3>'.__('About the Author', 'fast-monkey').'</h3>';
+	echo beans_open_markup( 'fast_monkey_author_profile', 'div',  array( 'class' => 'uk-panel uk-panel-box-secondary uk-panel-space' ) );
   echo '<div class="uk-clearfix">';
 	  echo '<div class="uk-align-left">'.get_avatar( get_the_author_meta('ID'), 96 ).'</div>';
    	echo '<div class="uk-text-large uk-text-bold">'.get_the_author_meta('display_name').'</div>';
 		echo wpautop(get_the_author_meta('description'));
 	echo '</div>';
-	echo beans_close_markup( 'human_droid_author_profile', 'div' );
+	echo beans_close_markup( 'fast_monkey_author_profile', 'div' );
 }
 
 
 // Add search in header after primary menu
-beans_add_smart_action( 'beans_primary_menu_after_markup', 'human_droid_primary_menu_search' );
-function human_droid_primary_menu_search() {
-	echo beans_open_markup( 'human_droid_menu_primary_search', 'div', array(
+beans_add_smart_action( 'beans_primary_menu_after_markup', 'fast_monkey_primary_menu_search' );
+function fast_monkey_primary_menu_search() {
+	echo beans_open_markup( 'fast_monkey_menu_primary_search', 'div', array(
 		'class' => 'tm-search uk-navbar-flip uk-hidden-small'
 	) );
 		get_search_form();
-	echo beans_close_markup( 'human_droid_menu_primary_search', 'div' );
+	echo beans_close_markup( 'fast_monkey_menu_primary_search', 'div' );
 }
 
 
 // Modify beans layout (filter)
-beans_add_smart_action( 'beans_layout_grid_settings', 'human_droid_layout_grid_settings' );
+beans_add_smart_action( 'beans_layout_grid_settings', 'fast_monkey_layout_grid_settings' );
 
-function human_droid_layout_grid_settings( $layouts ) {
+function fast_monkey_layout_grid_settings( $layouts ) {
 
 	return array_merge( $layouts, array(
 		'grid' => 10,
@@ -135,9 +126,9 @@ function human_droid_layout_grid_settings( $layouts ) {
 }
 
 // Modify beans post meta items (filter)
-beans_add_smart_action( 'beans_post_meta_items', 'human_droid_post_meta_items' );
+beans_add_smart_action( 'beans_post_meta_items', 'fast_monkey_post_meta_items' );
 
-function human_droid_post_meta_items( $items ) {
+function fast_monkey_post_meta_items( $items ) {
 
 	// Remove author meta
 	unset( $items['author'] );
@@ -151,9 +142,9 @@ function human_droid_post_meta_items( $items ) {
 }
 
 // Remove comment after note (filter)
-beans_add_smart_action( 'comment_form_defaults', 'human_droid_comment_form_defaults' );
+beans_add_smart_action( 'comment_form_defaults', 'fast_monkey_comment_form_defaults' );
 
-function human_droid_comment_form_defaults( $args ) {
+function fast_monkey_comment_form_defaults( $args ) {
 
 	$args['comment_notes_after'] = '';
 
@@ -163,9 +154,9 @@ function human_droid_comment_form_defaults( $args ) {
 
 
 // Add avatar uikit circle class (filter)
-beans_add_smart_action( 'get_avatar', 'human_droid_avatar' );
+beans_add_smart_action( 'get_avatar', 'fast_monkey_avatar' );
 
-function human_droid_avatar( $output ) {
+function fast_monkey_avatar( $output ) {
 
 	return str_replace( "class='avatar", "class='avatar uk-border-circle", $output ) ;
 
@@ -173,9 +164,9 @@ function human_droid_avatar( $output ) {
 
 
 // Modify the tags cloud widget
-beans_add_smart_action( 'wp_generate_tag_cloud', 'human_droid_widget_tags_cloud' );
+beans_add_smart_action( 'wp_generate_tag_cloud', 'fast_monkey_widget_tags_cloud' );
 
-function human_droid_widget_tags_cloud( $output ) {
+function fast_monkey_widget_tags_cloud( $output ) {
 
 	return preg_replace( "#style='font-size:.+pt;'#", '', $output );
 
@@ -183,9 +174,9 @@ function human_droid_widget_tags_cloud( $output ) {
 
 
 // Add the footer menu
-beans_add_smart_action( 'beans_footer_prepend_markup', 'human_droid_footer_menu' );
+beans_add_smart_action( 'beans_footer_prepend_markup', 'fast_monkey_footer_menu' );
 
-function human_droid_footer_menu() {
+function fast_monkey_footer_menu() {
 
 	wp_nav_menu( array( 'theme_location' => 'footer-menu',
 											'container' => 'nav',
@@ -196,23 +187,23 @@ function human_droid_footer_menu() {
 }
 
 // Add footer content (filter)
-beans_add_smart_action( 'beans_footer_credit_right_text_output', 'human_droid_footer' );
+beans_add_smart_action( 'beans_footer_credit_right_text_output', 'fast_monkey_footer' );
 
-function human_droid_footer() { ?>
+function fast_monkey_footer() { ?>
 
-  <a href="http://themes.kanishkkunal.in/human-droid/" target="_blank" title="HumanDroid theme for WordPress">HumanDroid</a> theme for <a href="http://wordpress.org" target="_blank">WordPress</a>. Built-with <a href="http://www.getbeans.io/" title="Beans Framework for WordPress" target="_blank">Beans</a>.
+  <a href="http://themes.kanishkkunal.in/fast-monkey/" target="_blank" title="FastMonkey theme for WordPress">FastMonkey</a> theme for <a href="http://wordpress.org" target="_blank">WordPress</a>. Built-with <a href="http://www.getbeans.io/" title="Beans Framework for WordPress" target="_blank">Beans</a>.
 
 <?php }
 
 //Setup Widgets
-beans_add_smart_action( 'widgets_init', 'human_droid_register_widgets');
+beans_add_smart_action( 'widgets_init', 'fast_monkey_register_widgets');
 
-function human_droid_register_widgets() {
+function fast_monkey_register_widgets() {
 			//Include widget classes
 	 		require_once('widgets/posts.php');
 	 		require_once('widgets/social.php');
 
 	 		// Regidter widgets
-			register_widget('HumanDroid_Posts_Widget');
-			register_widget( 'HumanDroid_SocialWidget' );
+			register_widget('FastMonkey_Posts_Widget');
+			register_widget( 'FastMonkey_SocialWidget' );
 }

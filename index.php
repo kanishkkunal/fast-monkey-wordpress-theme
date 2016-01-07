@@ -1,12 +1,12 @@
 <?php
-// Setup human-droid
-beans_add_smart_action( 'beans_before_load_document', 'human_droid_index_setup_document' );
+// Setup fast-monkey
+beans_add_smart_action( 'beans_before_load_document', 'fast_monkey_index_setup_document' );
 
-function human_droid_index_setup_document() {
+function fast_monkey_index_setup_document() {
 
 	// Posts grid
 	beans_add_attribute( 'beans_content', 'class', 'tm-posts-grid' );
-	beans_wrap_inner_markup( 'beans_post', 'human_droid_post_panel', 'div', array(
+	beans_wrap_inner_markup( 'beans_post', 'fast_monkey_post_panel', 'div', array(
 	  'class' => 'uk-panel uk-panel-box'
 	) );
 
@@ -38,15 +38,15 @@ function human_droid_index_setup_document() {
 require_once 'include/helpers.php';
 
 // Auto generate summary of Post content and read more button
-beans_add_smart_action( 'the_content', 'human_droid_post_content' );
+beans_add_smart_action( 'the_content', 'fast_monkey_post_content' );
 
-function human_droid_post_content( $content ) {
+function fast_monkey_post_content( $content ) {
 
-    $output = beans_open_markup( 'human_droid_post_content', 'p' );
+    $output = beans_open_markup( 'fast_monkey_post_content', 'p' );
 
-    	$output .= beans_output( 'human_droid_post_content_summary', human_droid_get_excerpt( $content ) );
+    	$output .= beans_output( 'fast_monkey_post_content_summary', fast_monkey_get_excerpt( $content ) );
 
-   	$output .= beans_close_markup( 'human_droid_post_content', 'p' );
+   	$output .= beans_close_markup( 'fast_monkey_post_content', 'p' );
 
 		$output .= '<p>'.beans_post_more_link().'</p>';
 
@@ -55,9 +55,9 @@ function human_droid_post_content( $content ) {
 }
 
 // Resize post image (filter)
-beans_add_smart_action( 'beans_edit_post_image_args', 'human_droid_index_post_image_args' );
+beans_add_smart_action( 'beans_edit_post_image_args', 'fast_monkey_index_post_image_args' );
 
-function human_droid_index_post_image_args( $args ) {
+function fast_monkey_index_post_image_args( $args ) {
 
 	$args['resize'] = array( 756, 320, true );
 

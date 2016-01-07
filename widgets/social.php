@@ -1,23 +1,23 @@
 <?php
 /*
-	HumanDroid Social Profile Widget
+	FastMonkey Social Profile Widget
 
 	License: GNU General Public License v3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 	Copyright: (c) 2013 Kanishk Kunal - http://kanishkkunal.in
 
-		@package human-droid
+		@package fast-monkey
 		@version 1.0
 */
 
-class HumanDroid_SocialWidget extends WP_Widget {
+class FastMonkey_SocialWidget extends WP_Widget {
 	var $defaults;
 
 /*  Constructor
 /* ------------------------------------ */
 	function __construct() {
-		parent::__construct( false, 'HumanDroid Social Profile', array('description' => __('Displays your Social profile', 'human-droid'), 'classname' => 'widget_human_droid_social') );;
+		parent::__construct( false, 'FastMonkey Social Profile', array('description' => __('Displays your Social profile', 'fast-monkey'), 'classname' => 'widget_fast_monkey_social') );;
 
 		$this->defaults = array(
 			'name' => '',
@@ -75,7 +75,7 @@ class HumanDroid_SocialWidget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults );
 ?>
 
-	<div class="human-droid-options-social">
+	<div class="fast-monkey-options-social">
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance["title"]); ?>" />
