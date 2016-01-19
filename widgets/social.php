@@ -50,6 +50,12 @@ class FastMonkey_SocialWidget extends WP_Widget {
 				<a href="http://twitter.com/kanishkkunal" class="uk-icon-hover uk-icon-small uk-icon-twitter" title="Twitter" target="_blank"></a>
 				<a href="http://www.linkedin.com/in/kanishkkunal" class="uk-icon-hover uk-icon-small uk-icon-linkedin" title="LinkedIn" target="_blank"></a>
 				<a href="http://feeds.feedburner.com/supercodingtips" class="uk-icon-hover uk-icon-small uk-icon-rss" title="Rss" target="_blank"></a>
+				<?php wp_nav_menu( array( 'theme_location' => 'social-menu',
+												'container' => 'div',
+		 										'container_class' => 'tm-social-menu',
+												'menu_class' => '',
+	                      'fallback_cb' => 'false'
+											)); ?>
     </div>
 
 
@@ -86,3 +92,14 @@ class FastMonkey_SocialWidget extends WP_Widget {
 }
 
 }
+
+function fast_monkey_add_nav_menu_atts( $atts, $item, $args ) {
+	//check if icon class is applied to menu and apply equivalent uk-icon to nav menu link
+	if(count($item->classes) >= 1) {
+		if(substr($item->classes[0], 0, 5) === "icon-") {
+			$atts['class'] = $atts['class'].' uk-'.$item->classes[0];
+		}
+	}
+  return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'fast_monkey_add_nav_menu_atts', 10, 4);

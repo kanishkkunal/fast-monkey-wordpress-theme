@@ -32,6 +32,7 @@ function fast_monkey_init() {
 	remove_post_type_support( 'page', 'comments' );
 	// Register additional menus, we already have a Primary menu registered
 	register_nav_menu('footer-menu', __( 'Footer Menu', 'fast-monkey'));
+	register_nav_menu('social-menu', __( 'Social Menu', 'bench'));
 }
 
 // Setup document fragements, markups and attributes
