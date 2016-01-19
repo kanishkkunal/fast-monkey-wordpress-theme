@@ -158,6 +158,41 @@ body.page .uk-article-title {
 	border-bottom: 1px solid @global-border;
 }
 
+
+/* Social Menu */
+.tm-social-menu {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    display: inline-block;
+  }
+
+  li a {
+    visibility: collapse;
+    width: 22px;
+    white-space: nowrap;
+  }
+
+  li a:before {
+    visibility: visible;
+    font-size: 175%;
+    color: @global-color;
+    opacity: 0.6;
+  }
+
+	li a:hover {
+    color: @global-color;
+  }
+
+  li:hover a:before {
+    opacity: 1;
+  }
+}
+
 /* Widgets
  ========================================================================== */
 .tm-widget {

@@ -46,10 +46,6 @@ class FastMonkey_SocialWidget extends WP_Widget {
         <p class="tm-profile-desc uk-text-muted">Developer - Blogger - Techie</p>
         <p class="tm-profile-loc uk-text-muted uk-text-small"><i class="uk-icon-map-marker"></i>Noida, India</p>
 				<hr>
-				<a href="https://github.com/kanishkkunal/" class="uk-icon-hover uk-icon-small uk-icon-github" title="GitHub" target="_blank"></a>
-				<a href="http://twitter.com/kanishkkunal" class="uk-icon-hover uk-icon-small uk-icon-twitter" title="Twitter" target="_blank"></a>
-				<a href="http://www.linkedin.com/in/kanishkkunal" class="uk-icon-hover uk-icon-small uk-icon-linkedin" title="LinkedIn" target="_blank"></a>
-				<a href="http://feeds.feedburner.com/supercodingtips" class="uk-icon-hover uk-icon-small uk-icon-rss" title="Rss" target="_blank"></a>
 				<?php wp_nav_menu( array( 'theme_location' => 'social-menu',
 												'container' => 'div',
 		 										'container_class' => 'tm-social-menu',
