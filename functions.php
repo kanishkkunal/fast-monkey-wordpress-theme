@@ -235,10 +235,12 @@ function fast_monkey_register_widgets() {
 			//Include widget classes
 	 		require_once('widgets/posts.php');
 	 		require_once('widgets/social.php');
+	 		require_once('widgets/ads.php');
 
 	 		// Regidter widgets
 			register_widget('FastMonkey_Posts_Widget');
 			register_widget( 'FastMonkey_SocialWidget' );
+			register_widget('FastMonkey_Ads_Widget');
 }
 
 
