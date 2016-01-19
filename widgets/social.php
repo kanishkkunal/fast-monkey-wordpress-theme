@@ -18,12 +18,6 @@ class FastMonkey_SocialWidget extends WP_Widget {
 /* ------------------------------------ */
 	function __construct() {
 		parent::__construct( false, 'FastMonkey Social Profile', array('description' => __('Displays your Social profile', 'fast-monkey'), 'classname' => 'widget_fast_monkey_social') );;
-
-		$this->defaults = array(
-			'name' => '',
-			'tagline' => '',
-			'localtion' => ''
-		);
 	}
 
 /*  Widget
@@ -42,9 +36,9 @@ class FastMonkey_SocialWidget extends WP_Widget {
 		?>
 		<div class="tm-social-profile uk-panel uk-panel-box uk-text-center">
         <img class="uk-border-circle" width="120" height="120" src="http://2.gravatar.com/avatar/bb9bf20fb6f55b4af10b0f98c540075f?s=192&d=mm&r=g" alt="">
-        <h3 class="tm-profile-name">Kanishk Kunal</h3>
-        <p class="tm-profile-desc uk-text-muted">Developer - Blogger - Techie</p>
-        <p class="tm-profile-loc uk-text-muted uk-text-small"><i class="uk-icon-map-marker"></i>Noida, India</p>
+        <h3 class="tm-profile-name"><?php echo $instance['name']; ?></h3>
+        <p class="tm-profile-desc uk-text-muted"><?php echo $instance['profile']; ?></p>
+        <p class="tm-profile-loc uk-text-muted uk-text-small"><i class="uk-icon-map-marker"></i><?php echo $instance['location']; ?></p>
 				<hr>
 				<?php wp_nav_menu( array( 'theme_location' => 'social-menu',
 												'container' => 'div',
@@ -64,6 +58,9 @@ class FastMonkey_SocialWidget extends WP_Widget {
 	public function update($new,$old) {
 		$instance = $old;
 		$instance['title'] = esc_attr($new['title']);
+		$instance['name'] = esc_attr($new['name']);
+		$instance['profile'] = esc_attr($new['profile']);
+		$instance['location'] = esc_attr($new['location']);
 		return $instance;
 	}
 
@@ -73,6 +70,9 @@ class FastMonkey_SocialWidget extends WP_Widget {
 		// Default widget settings
 		$defaults = array(
 			'title' 			=> '',
+			'name'				=> 'Your Name',
+			'profile'			=> 'Your Profile Description',
+			'location'		=> 'Your Location'
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 ?>
@@ -81,6 +81,18 @@ class FastMonkey_SocialWidget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance["title"]); ?>" />
+		</p>
+		<p>
+				<label for="<?php echo $this->get_field_id('name'); ?>">Name:</label>
+				<input class="widefat" id="<?php echo $this->get_field_id('name'); ?>" name="<?php echo $this->get_field_name('name'); ?>" type="text" value="<?php echo esc_attr($instance["name"]); ?>" />
+		</p>
+		<p>
+				<label for="<?php echo $this->get_field_id('profile'); ?>">Profile:</label>
+				<input class="widefat" id="<?php echo $this->get_field_id('profile'); ?>" name="<?php echo $this->get_field_name('profile'); ?>" type="text" value="<?php echo esc_attr($instance["profile"]); ?>" />
+		</p>
+		<p>
+				<label for="<?php echo $this->get_field_id('location'); ?>">Location:</label>
+				<input class="widefat" id="<?php echo $this->get_field_id('location'); ?>" name="<?php echo $this->get_field_name('location'); ?>" type="text" value="<?php echo esc_attr($instance["location"]); ?>" />
 		</p>
 	</div>
 <?php
