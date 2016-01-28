@@ -225,7 +225,7 @@ beans_add_smart_action( 'beans_footer_credit_right_text_output', 'fast_monkey_fo
 
 function fast_monkey_footer() { ?>
 
-  <a href="http://themes.kanishkkunal.in/fast-monkey/" target="_blank" title="Fast Monkey theme for WordPress">Fast Monkey</a> theme for <a href="http://wordpress.org" target="_blank">WordPress</a>. Built-with <a href="http://www.getbeans.io/" title="Beans Framework for WordPress" target="_blank">Beans</a>.
+  <a href="https://kkthemes.com/wordpress/fast-monkey/" target="_blank" title="Fast Monkey theme for WordPress">Fast Monkey</a> theme for <a href="http://wordpress.org" target="_blank">WordPress</a>. Built-with <a href="http://www.getbeans.io/" title="Beans Framework for WordPress" target="_blank">Beans</a>.
 
 <?php }
 
